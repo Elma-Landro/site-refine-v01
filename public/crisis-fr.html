@@ -281,8 +281,17 @@
             padding: 2px 6px;
             border: 1px solid;
             font-size: 0.7em;
+            margin: 2px;
+            text-align: center;
+        }
+
+        .vuln-types {
             margin-bottom: 5px;
             text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3px;
         }
 
         .type-dos { 
@@ -1396,7 +1405,7 @@
 
         function generateBarChartFiltered(data) {
             const yearCounts = {};
-            data.filter(v => v.type !== 'genesis').forEach(vuln => {
+            data.filter(v => !v.types.includes('genesis')).forEach(vuln => {
                 yearCounts[vuln.year] = (yearCounts[vuln.year] || 0) + 1;
             });
 
@@ -1472,8 +1481,12 @@
                 'unknown': 'Unknown'
             };
 
-            vulnerabilities.filter(v => v.type !== 'genesis').forEach(vuln => {
-                typeCounts[vuln.type] = (typeCounts[vuln.type] || 0) + 1;
+            vulnerabilities.filter(v => !v.types.includes('genesis')).forEach(vuln => {
+                vuln.types.forEach(type => {
+                    if (type !== 'genesis') {
+                        typeCounts[type] = (typeCounts[type] || 0) + 1;
+                    }
+                });
             });
 
             const ctx = document.getElementById('pieChart').getContext('2d');
@@ -1527,7 +1540,7 @@
 
         function generateBarChart() {
             const yearCounts = {};
-            vulnerabilities.filter(v => v.type !== 'genesis').forEach(vuln => {
+            vulnerabilities.filter(v => !v.types.includes('genesis')).forEach(vuln => {
                 yearCounts[vuln.year] = (yearCounts[vuln.year] || 0) + 1;
             });
 
