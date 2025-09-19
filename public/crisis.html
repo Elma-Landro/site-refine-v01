@@ -766,7 +766,11 @@
             <div class="stats-container" style="margin: 15px 0;">
                 <div class="stat-box">
                     <span class="stat-number" id="total-vulns">41</span>
-                    <span class="stat-label">Total vulnerabilities</span>
+                    <span class="stat-label">Total crises</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" id="total-type-instances">42</span>
+                    <span class="stat-label">Total type instances</span>
                 </div>
                 <div class="stat-box">
                     <span class="stat-number" id="critical-vulns">14</span>
@@ -884,7 +888,7 @@
             { year: 2018, month: 6, cve: "CVE-2017-12842", type: "fake-conf", title: "No commitment to block merkle tree depth", description: "Merkle tree depth manipulation allowing invalid block acceptance", date: "09/06/2018" },
             { year: 2018, month: 7, cve: "CVE-2016-10724", type: "dos", title: "Alert memory exhaustion", description: "Alert system allowing unlimited memory consumption", date: "02/07/2018" },
             { year: 2018, month: 7, cve: "CVE-2016-10725", type: "dos", title: "Final alert cancellation", description: "Alert system shutdown preventing future emergency communications", date: "02/07/2018" },
-            { year: 2018, month: 9, cve: "CVE-2018-17144", type: "inflation", title: "Missing check for duplicate inputs", description: "Duplicate input validation bypass allowing potential inflation and DoS", date: "17/09/2018" },
+            { year: 2018, month: 9, cve: "CVE-2018-17144", type: "inflation", additionalTypes: ["dos"], title: "Missing check for duplicate inputs", description: "Duplicate input validation bypass allowing potential inflation and DoS", date: "17/09/2018" },
             { year: 2019, month: 2, cve: "CVE-2018-20587", type: "theft", title: "No alert for RPC service binding failure", description: "Silent RPC binding failures exposing services to unintended networks", date: "08/02/2019" },
             { year: 2019, month: 6, cve: "CVE-2018-20586", type: "unknown", title: "Allow injection of arbitrary data into the debug log via an RPC call", description: "RPC interface allowing arbitrary log injection for potential attacks", date: "22/06/2019" },
             { year: 2019, month: 6, cve: "CVE-2017-18350", type: "unknown", title: "Buffer overflow vulnerability", description: "Memory buffer overflow with undefined security implications", date: "22/06/2019" }
@@ -942,7 +946,7 @@
                             <div class="card-front">
                                 <div class="vuln-title">${vuln.title}</div>
                                 <div class="vuln-cve">${vuln.cve}</div>
-                                <div class="vuln-type type-${vuln.type}">${vuln.type.toUpperCase()}</div>
+                                <div class="vuln-type type-${vuln.type}">${vuln.type.toUpperCase()}${vuln.additionalTypes ? vuln.additionalTypes.map(t => ` + ${t.toUpperCase()}`).join('') : ''}</div>
                                 <div class="vuln-description">${vuln.description}</div>
                                 ${vuln.date ? `<div class="vuln-date" style="color: var(--text-accent); font-size: 0.75em; margin-top: 5px; text-align: center;">${vuln.date}</div>` : ''}
                                 ${isCritical ? '<div style="position: absolute; bottom: 8px; right: 8px; color: #ff3838; font-size: 0.6em; font-weight: bold;">CRITICAL</div>' : ''}
@@ -1273,7 +1277,17 @@
                 criticalCVEs.includes(v.cve)
             ).length;
 
+            // Count total type instances including additional types
+            let totalTypeInstances = 0;
+            filteredWithoutGenesis.forEach(vuln => {
+                totalTypeInstances += 1; // Main type
+                if (vuln.additionalTypes) {
+                    totalTypeInstances += vuln.additionalTypes.length;
+                }
+            });
+
             document.getElementById('total-vulns').textContent = filteredWithoutGenesis.length;
+            document.getElementById('total-type-instances').textContent = totalTypeInstances;
             document.getElementById('critical-vulns').textContent = criticalCount;
         }
 
@@ -1440,8 +1454,13 @@
                 'unknown': 'Unknown'
             };
 
-            vulnerabilities.filter(v => v.type !== 'genesis').forEach(vuln => {
+            data.filter(v => v.type !== 'genesis').forEach(vuln => {
                 typeCounts[vuln.type] = (typeCounts[vuln.type] || 0) + 1;
+                if (vuln.additionalTypes) {
+                    vuln.additionalTypes.forEach(type => {
+                        typeCounts[type] = (typeCounts[type] || 0) + 1;
+                    });
+                }
             });
 
             const ctx = document.getElementById('pieChart').getContext('2d');
