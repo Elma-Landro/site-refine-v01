@@ -915,7 +915,7 @@
         function renderVulnerabilities() {
             const filtered = currentFilter === 'all' 
                 ? vulnerabilities 
-                : vulnerabilities.filter(v => v.type === currentFilter);
+                : vulnerabilities.filter(v => v.type === currentFilter || (v.additionalTypes && v.additionalTypes.includes(currentFilter)));
 
             const grouped = groupByYear(filtered);
             const years = Object.keys(grouped).sort((a, b) => parseInt(a) - parseInt(b));
@@ -1313,7 +1313,7 @@
         function generateChartsFiltered() {
             const filtered = currentFilter === 'all' 
                 ? vulnerabilities.filter(v => v.type !== 'genesis')
-                : vulnerabilities.filter(v => v.type === currentFilter && v.type !== 'genesis');
+                : vulnerabilities.filter(v => (v.type === currentFilter || (v.additionalTypes && v.additionalTypes.includes(currentFilter))) && v.type !== 'genesis');
 
             generatePieChartFiltered(filtered);
             generateBarChartFiltered(filtered);
@@ -1333,6 +1333,11 @@
 
             data.filter(v => v.type !== 'genesis').forEach(vuln => {
                 typeCounts[vuln.type] = (typeCounts[vuln.type] || 0) + 1;
+                if (vuln.additionalTypes) {
+                    vuln.additionalTypes.forEach(type => {
+                        typeCounts[type] = (typeCounts[type] || 0) + 1;
+                    });
+                }
             });
 
             const ctx = document.getElementById('pieChart').getContext('2d');
