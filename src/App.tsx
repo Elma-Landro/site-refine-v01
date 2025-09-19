@@ -16,8 +16,8 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/crisis" element={<div style={{width: '100%', height: '100vh'}}><iframe src="/crisis.html" style={{width: '100%', height: '100%', border: 'none'}} title="Crisis Timeline" /></div>} />
-          <Route path="/crisis-fr" element={<div style={{width: '100%', height: '100vh'}}><iframe src="/crisis-fr.html" style={{width: '100%', height: '100%', border: 'none'}} title="Timeline des Crises" /></div>} />
+          <Route path="/crisis" element={<div dangerouslySetInnerHTML={{ __html: '<meta http-equiv="refresh" content="0; url=/crisis.html">' }} />} />
+          <Route path="/crisis-fr" element={<div dangerouslySetInnerHTML={{ __html: '<meta http-equiv="refresh" content="0; url=/crisis-fr.html">' }} />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
