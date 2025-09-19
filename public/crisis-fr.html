@@ -765,8 +765,17 @@
 
             <div class="stats-container" style="margin: 15px 0;">
                 <div class="stat-box">
-                    <span class="stat-number" id="total-vulns">41</span>
-                    <span class="stat-label">Vulnérabilités totales</span>
+                    <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                        <div style="text-align: center;">
+                            <span class="stat-number" id="total-vulns">41</span>
+                            <span class="stat-label" style="font-size: 0.8em;">Crises</span>
+                        </div>
+                        <div style="color: var(--text-accent); font-size: 1.2em;">/</div>
+                        <div style="text-align: center;">
+                            <span class="stat-number" id="total-type-instances">42</span>
+                            <span class="stat-label" style="font-size: 0.8em;">Types</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="stat-box">
                     <span class="stat-number" id="critical-vulns">14</span>
