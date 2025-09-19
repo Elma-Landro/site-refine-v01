@@ -2,12 +2,18 @@
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <iframe 
+      src="/index.html" 
+      style={{ 
+        width: '100%', 
+        height: '100vh', 
+        border: 'none',
+        margin: 0,
+        padding: 0,
+        overflow: 'hidden'
+      }}
+      title="Votre site HTML"
+    />
   );
 };
 
