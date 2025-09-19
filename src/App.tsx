@@ -16,8 +16,6 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/crisis" element={<div style={{ display: 'none' }}>{window.location.href = '/crisis.html'}</div>} />
-          <Route path="/crisis-fr" element={<div style={{ display: 'none' }}>{window.location.href = '/crisis-fr.html'}</div>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
