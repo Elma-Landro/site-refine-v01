@@ -3,7 +3,7 @@
 const Index = () => {
   return (
     <iframe 
-      src="/index.html" 
+      src="/index.html?lang=en"
       style={{ 
         width: '100%', 
         height: '100vh', 
