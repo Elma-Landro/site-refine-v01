@@ -857,7 +857,7 @@
             { year: 2010, month: 7, cve: "CVE-2010-5137", type: "dos", title: "OP_LSHIFT crash", description: "Script execution vulnerability causing client termination", date: "28/07/2010" },
             { year: 2010, month: 7, cve: "CVE-2010-5141", type: "theft", title: "OP_RETURN could be used to spend any output", description: "Critical vulnerability allowing unauthorized spending of any UTXO", date: "28/07/2010" },
             { year: 2010, month: 7, cve: "CVE-2010-5138", type: "dos", title: "Unlimited SigOp DoS", description: "Resource exhaustion through excessive signature operations", date: "29/07/2010" },
-            { year: 2010, month: 8, cve: "CVE-2010-5139", type: "inflation", title: "Combined output overflow", description: "Integer overflow allowing creation of 184 billion BTC in block 74638", date: "15/08/2010" },
+            { year: 2010, month: 8, cve: "CVE-2010-5139", type: "inflation", additionalTypes: ["network-split"], title: "Combined output overflow", description: "Integer overflow allowing creation of 184 billion BTC in block 74638", date: "15/08/2010" },
             { year: 2010, month: 9, cve: "CVE-2010-5140", type: "dos", title: "Never confirming transactions", description: "Network congestion through unconfirmable transaction propagation", date: "29/09/2010" },
             { year: 2011, month: 11, cve: "CVE-2011-4447", type: "exposure", title: "Wallet non-encryption", description: "Private keys stored unencrypted on disk by default", date: "11/11/2011" },
             { year: 2012, month: 3, cve: "CVE-2012-1909", type: "network-split", title: "Transaction overwriting", description: "Duplicate transaction hashes could cause blockchain inconsistencies", date: "07/03/2012" },
