@@ -844,50 +844,50 @@
     <script src="script.js"></script>
     <script>
         const vulnerabilities = [
-            { year: 2009, month: 1, cve: "Genesis Block", type: "genesis", title: "Bitcoin Protocol Launch", description: "Bitcoin network launch", date: "03/01/2009" },
-            { year: 2010, month: 7, cve: "CVE-2010-5137", type: "dos", title: "OP_LSHIFT crash", description: "Script execution vulnerability causing client termination", date: "28/07/2010" },
-            { year: 2010, month: 7, cve: "CVE-2010-5141", type: "theft", title: "OP_RETURN could be used to spend any output", description: "Critical vulnerability allowing unauthorized spending of any UTXO", date: "28/07/2010" },
-            { year: 2010, month: 7, cve: "CVE-2010-5138", type: "dos", title: "Unlimited SigOp DoS", description: "Resource exhaustion through excessive signature operations", date: "29/07/2010" },
-            { year: 2010, month: 8, cve: "CVE-2010-5139", type: "inflation", title: "Combined output overflow", description: "Integer overflow allowing creation of 184 billion BTC in block 74638", date: "15/08/2010" },
-            { year: 2010, month: 9, cve: "CVE-2010-5140", type: "dos", title: "Never confirming transactions", description: "Network congestion through unconfirmable transaction propagation", date: "29/09/2010" },
-            { year: 2011, month: 11, cve: "CVE-2011-4447", type: "exposure", title: "Wallet non-encryption", description: "Private keys stored unencrypted on disk by default", date: "11/11/2011" },
-            { year: 2012, month: 3, cve: "CVE-2012-1909", type: "network-split", title: "Transaction overwriting", description: "Duplicate transaction hashes could cause blockchain inconsistencies", date: "07/03/2012" },
-            { year: 2012, month: 3, cve: "CVE-2012-1910", type: "unknown", title: "Non-thread safe MingW exceptions", description: "Windows-specific threading vulnerability with undefined behavior", date: "17/03/2012" },
-            { year: 2012, month: 4, cve: "BIP 0016", type: "fake-conf", title: "Softfork: P2SH", description: "Pay-to-Script-Hash implementation creating validation discrepancies", date: "01/04/2012" },
-            { year: 2012, month: 5, cve: "CVE-2012-2459", type: "network-split", title: "Block hash collision (via merkle root)", description: "Merkle tree manipulation allowing duplicate block hashes", date: "14/05/2012" },
-            { year: 2012, month: 6, cve: "CVE-2012-3789", type: "dos", title: "(Lack of) orphan txn resource limits", description: "Memory exhaustion through unlimited orphaned transaction storage", date: "20/06/2012" },
-            { year: 2012, month: 8, cve: "CVE-2012-4682", type: "dos", title: "Memory exhaustion", description: "Uncontrolled memory allocation leading to node crashes", date: "16/09/2012" },
-            { year: 2012, month: 8, cve: "CVE-2012-4683", type: "dos", title: "Targeted DoS by CPU exhaustion using alerts", description: "Alert system abuse for computational resource depletion", date: "23/08/2012" },
-            { year: 2012, month: 8, cve: "CVE-2012-4684", type: "dos", title: "Network-wide DoS using malleable signatures in alerts", description: "Signature malleability in alert messages causing network disruption", date: "24/08/2012" },
-            { year: 2013, month: 1, cve: "CVE-2013-2272", type: "exposure", title: "Remote discovery of node's wallet addresses", description: "Network analysis allowing identification of node wallet addresses", date: "11/01/2013" },
-            { year: 2013, month: 1, cve: "CVE-2013-2273", type: "exposure", title: "Predictable change output", description: "Change address generation patterns revealing transaction relationships", date: "30/01/2013" },
-            { year: 2013, month: 1, cve: "CVE-2013-2292", type: "dos", title: "A transaction that takes at least 3 minutes to verify", description: "Computationally expensive transaction verification causing delays", date: "30/01/2013" },
-            { year: 2013, month: 1, cve: "CVE-2013-2293", type: "dos", title: "Continuous hard disk seek", description: "Storage access patterns causing performance degradation", date: "09/01/2013" },
-            { year: 2013, month: 2, cve: "CVE-2013-4627", type: "dos", title: "Memory exhaustion with excess tx message data", description: "Oversized transaction messages causing memory overflow", date: "08/02/2013" },
-            { year: 2013, month: 3, cve: "CVE-2013-3219", type: "fake-conf", title: "Unenforced block protocol rule", description: "Block validation inconsistencies allowing invalid confirmations", date: "11/03/2013" },
-            { year: 2013, month: 3, cve: "CVE-2013-3220", type: "network-split", title: "Inconsistent BDB lock limit interactions", description: "Database lock limits causing blockchain fork on March 11, 2013", date: "11/03/2013" },
-            { year: 2013, month: 3, cve: "BIP 0034", type: "fake-conf", title: "Softfork: Height in coinbase", description: "Block height inclusion requirement creating validation discrepancies", date: "24/03/2013" },
-            { year: 2013, month: 5, cve: "BIP 0050", type: "network-split", title: "Hard fork to remove txid limit protocol rule", description: "Emergency protocol change following March 2013 chain split", date: "15/05/2013" },
-            { year: 2013, month: 7, cve: "CVE-2013-4165", type: "theft", title: "Timing leak in RPC authentication", description: "Password timing attack allowing credential discovery", date: "20/07/2013" },
-            { year: 2013, month: 9, cve: "CVE-2013-5700", type: "dos", title: "Remote p2p crash via bloom filters", description: "Malformed bloom filter messages causing node crashes", date: "04/09/2013" },
-            { year: 2014, month: 4, cve: "BIP 0042", type: "inflation", title: "Bitcoin fixed monetary supply (Inflation Bug)", description: "Undefined C++ behavior potentially causing infinite monetary supply beyond 21M BTC", date: "01/04/2014" },
-            { year: 2014, month: 4, cve: "CVE-2014-0160", type: "unknown", title: "Remote memory leak via payment protocol", description: "Payment protocol implementation allowing memory content disclosure", date: "07/04/2014" },
-            { year: 2015, month: 2, cve: "CVE-2015-3641", type: "dos", title: "OOM via p2p", description: "Memory exhaustion through crafted peer-to-peer network messages", date: "05/02/2015" },
-            { year: 2015, month: 2, cve: "BIP 66", type: "fake-conf", title: "Softfork: Strict DER signatures", description: "Signature encoding standardization creating validation inconsistencies", date: "13/02/2015" },
-            { year: 2015, month: 9, cve: "CVE-2015-6031", type: "dos", title: "Buffer overflow, remote UPNP servers to cause a denial of service", description: "UPnP implementation buffer overflow allowing remote code execution", date: "15/09/2015" },
-            { year: 2015, month: 11, cve: "BIP 65", type: "fake-conf", title: "Softfork: OP_CHECKLOCKTIMEVERIFY", description: "Time-locked transaction validation creating soft fork conditions", date: "12/11/2015" },
-            { year: 2016, month: 4, cve: "BIPs 68, 112 & 113", type: "fake-conf", title: "Softforks: Rel locktime, CSV & MTP locktime", description: "Relative locktime and CSV implementation creating validation conflicts", date: "11/04/2016" },
-            { year: 2016, month: 10, cve: "BIPs 141, 143 & 147", type: "fake-conf", title: "Softfork: Segwit", description: "Segregated Witness implementation addressing transaction malleability", date: "27/10/2016" },
-            { year: 2016, month: 10, cve: "CVE-2016-8889", type: "exposure", title: "Debug console history storing sensitive info", description: "Debug console retaining sensitive commands and data in history", date: "27/10/2016" },
-            { year: 2017, month: 3, cve: "BIP 148", type: "fake-conf", title: "Softfork: Segwit UASF", description: "User Activated Soft Fork proposal forcing SegWit adoption", date: "12/03/2017" },
-            { year: 2017, month: 5, cve: "CVE-2017-9230", type: "unknown", title: "AsicBoost", description: "ASIC optimization technique affecting mining decentralization", date: "24/05/2017" },
-            { year: 2018, month: 6, cve: "CVE-2017-12842", type: "fake-conf", title: "No commitment to block merkle tree depth", description: "Merkle tree depth manipulation allowing invalid block acceptance", date: "09/06/2018" },
-            { year: 2018, month: 7, cve: "CVE-2016-10724", type: "dos", title: "Alert memory exhaustion", description: "Alert system allowing unlimited memory consumption", date: "02/07/2018" },
-            { year: 2018, month: 7, cve: "CVE-2016-10725", type: "dos", title: "Final alert cancellation", description: "Alert system shutdown preventing future emergency communications", date: "02/07/2018" },
-            { year: 2018, month: 9, cve: "CVE-2018-17144", type: "inflation", title: "Missing check for duplicate inputs", description: "Duplicate input validation bypass allowing potential inflation and DoS", date: "17/09/2018" },
-            { year: 2019, month: 2, cve: "CVE-2018-20587", type: "theft", title: "No alert for RPC service binding failure", description: "Silent RPC binding failures exposing services to unintended networks", date: "08/02/2019" },
-            { year: 2019, month: 6, cve: "CVE-2018-20586", type: "unknown", title: "Allow injection of arbitrary data into the debug log via an RPC call", description: "RPC interface allowing arbitrary log injection for potential attacks", date: "22/06/2019" },
-            { year: 2019, month: 6, cve: "CVE-2017-18350", type: "unknown", title: "Buffer overflow vulnerability", description: "Memory buffer overflow with undefined security implications", date: "22/06/2019" }
+            { year: 2009, month: 1, cve: "Genesis Block", types: ["genesis"], title: "Bitcoin Protocol Launch", description: "Bitcoin network launch", date: "03/01/2009" },
+            { year: 2010, month: 7, cve: "CVE-2010-5137", types: ["dos"], title: "OP_LSHIFT crash", description: "Script execution vulnerability causing client termination", date: "28/07/2010" },
+            { year: 2010, month: 7, cve: "CVE-2010-5141", types: ["theft"], title: "OP_RETURN could be used to spend any output", description: "Critical vulnerability allowing unauthorized spending of any UTXO", date: "28/07/2010" },
+            { year: 2010, month: 7, cve: "CVE-2010-5138", types: ["dos"], title: "Unlimited SigOp DoS", description: "Resource exhaustion through excessive signature operations", date: "29/07/2010" },
+            { year: 2010, month: 8, cve: "CVE-2010-5139", types: ["inflation"], title: "Combined output overflow", description: "Integer overflow allowing creation of 184 billion BTC in block 74638", date: "15/08/2010" },
+            { year: 2010, month: 9, cve: "CVE-2010-5140", types: ["dos"], title: "Never confirming transactions", description: "Network congestion through unconfirmable transaction propagation", date: "29/09/2010" },
+            { year: 2011, month: 11, cve: "CVE-2011-4447", types: ["exposure"], title: "Wallet non-encryption", description: "Private keys stored unencrypted on disk by default", date: "11/11/2011" },
+            { year: 2012, month: 3, cve: "CVE-2012-1909", types: ["network-split"], title: "Transaction overwriting", description: "Duplicate transaction hashes could cause blockchain inconsistencies", date: "07/03/2012" },
+            { year: 2012, month: 3, cve: "CVE-2012-1910", types: ["unknown"], title: "Non-thread safe MingW exceptions", description: "Windows-specific threading vulnerability with undefined behavior", date: "17/03/2012" },
+            { year: 2012, month: 4, cve: "BIP 0016", types: ["fake-conf"], title: "Softfork: P2SH", description: "Pay-to-Script-Hash implementation creating validation discrepancies", date: "01/04/2012" },
+            { year: 2012, month: 5, cve: "CVE-2012-2459", types: ["network-split"], title: "Block hash collision (via merkle root)", description: "Merkle tree manipulation allowing duplicate block hashes", date: "14/05/2012" },
+            { year: 2012, month: 6, cve: "CVE-2012-3789", types: ["dos"], title: "(Lack of) orphan txn resource limits", description: "Memory exhaustion through unlimited orphaned transaction storage", date: "20/06/2012" },
+            { year: 2012, month: 8, cve: "CVE-2012-4682", types: ["dos"], title: "Memory exhaustion", description: "Uncontrolled memory allocation leading to node crashes", date: "16/09/2012" },
+            { year: 2012, month: 8, cve: "CVE-2012-4683", types: ["dos"], title: "Targeted DoS by CPU exhaustion using alerts", description: "Alert system abuse for computational resource depletion", date: "23/08/2012" },
+            { year: 2012, month: 8, cve: "CVE-2012-4684", types: ["dos"], title: "Network-wide DoS using malleable signatures in alerts", description: "Signature malleability in alert messages causing network disruption", date: "24/08/2012" },
+            { year: 2013, month: 1, cve: "CVE-2013-2272", types: ["exposure"], title: "Remote discovery of node's wallet addresses", description: "Network analysis allowing identification of node wallet addresses", date: "11/01/2013" },
+            { year: 2013, month: 1, cve: "CVE-2013-2273", types: ["exposure"], title: "Predictable change output", description: "Change address generation patterns revealing transaction relationships", date: "30/01/2013" },
+            { year: 2013, month: 1, cve: "CVE-2013-2292", types: ["dos"], title: "A transaction that takes at least 3 minutes to verify", description: "Computationally expensive transaction verification causing delays", date: "30/01/2013" },
+            { year: 2013, month: 1, cve: "CVE-2013-2293", types: ["dos"], title: "Continuous hard disk seek", description: "Storage access patterns causing performance degradation", date: "09/01/2013" },
+            { year: 2013, month: 2, cve: "CVE-2013-4627", types: ["dos"], title: "Memory exhaustion with excess tx message data", description: "Oversized transaction messages causing memory overflow", date: "08/02/2013" },
+            { year: 2013, month: 3, cve: "CVE-2013-3219", types: ["fake-conf"], title: "Unenforced block protocol rule", description: "Block validation inconsistencies allowing invalid confirmations", date: "11/03/2013" },
+            { year: 2013, month: 3, cve: "CVE-2013-3220", types: ["network-split"], title: "Inconsistent BDB lock limit interactions", description: "Database lock limits causing blockchain fork on March 11, 2013", date: "11/03/2013" },
+            { year: 2013, month: 3, cve: "BIP 0034", types: ["fake-conf"], title: "Softfork: Height in coinbase", description: "Block height inclusion requirement creating validation discrepancies", date: "24/03/2013" },
+            { year: 2013, month: 5, cve: "BIP 0050", types: ["network-split"], title: "Hard fork to remove txid limit protocol rule", description: "Emergency protocol change following March 2013 chain split", date: "15/05/2013" },
+            { year: 2013, month: 7, cve: "CVE-2013-4165", types: ["theft"], title: "Timing leak in RPC authentication", description: "Password timing attack allowing credential discovery", date: "20/07/2013" },
+            { year: 2013, month: 9, cve: "CVE-2013-5700", types: ["dos"], title: "Remote p2p crash via bloom filters", description: "Malformed bloom filter messages causing node crashes", date: "04/09/2013" },
+            { year: 2014, month: 4, cve: "BIP 0042", types: ["inflation"], title: "Bitcoin fixed monetary supply (Inflation Bug)", description: "Undefined C++ behavior potentially causing infinite monetary supply beyond 21M BTC", date: "01/04/2014" },
+            { year: 2014, month: 4, cve: "CVE-2014-0160", types: ["unknown"], title: "Remote memory leak via payment protocol", description: "Payment protocol implementation allowing memory content disclosure", date: "07/04/2014" },
+            { year: 2015, month: 2, cve: "CVE-2015-3641", types: ["dos"], title: "OOM via p2p", description: "Memory exhaustion through crafted peer-to-peer network messages", date: "05/02/2015" },
+            { year: 2015, month: 2, cve: "BIP 66", types: ["fake-conf"], title: "Softfork: Strict DER signatures", description: "Signature encoding standardization creating validation inconsistencies", date: "13/02/2015" },
+            { year: 2015, month: 9, cve: "CVE-2015-6031", types: ["dos"], title: "Buffer overflow, remote UPNP servers to cause a denial of service", description: "UPnP implementation buffer overflow allowing remote code execution", date: "15/09/2015" },
+            { year: 2015, month: 11, cve: "BIP 65", types: ["fake-conf"], title: "Softfork: OP_CHECKLOCKTIMEVERIFY", description: "Time-locked transaction validation creating soft fork conditions", date: "12/11/2015" },
+            { year: 2016, month: 4, cve: "BIPs 68, 112 & 113", types: ["fake-conf"], title: "Softforks: Rel locktime, CSV & MTP locktime", description: "Relative locktime and CSV implementation creating validation conflicts", date: "11/04/2016" },
+            { year: 2016, month: 10, cve: "BIPs 141, 143 & 147", types: ["fake-conf"], title: "Softfork: Segwit", description: "Segregated Witness implementation addressing transaction malleability", date: "27/10/2016" },
+            { year: 2016, month: 10, cve: "CVE-2016-8889", types: ["exposure"], title: "Debug console history storing sensitive info", description: "Debug console retaining sensitive commands and data in history", date: "27/10/2016" },
+            { year: 2017, month: 3, cve: "BIP 148", types: ["fake-conf"], title: "Softfork: Segwit UASF", description: "User Activated Soft Fork proposal forcing SegWit adoption", date: "12/03/2017" },
+            { year: 2017, month: 5, cve: "CVE-2017-9230", types: ["unknown"], title: "AsicBoost", description: "ASIC optimization technique affecting mining decentralization", date: "24/05/2017" },
+            { year: 2018, month: 6, cve: "CVE-2017-12842", types: ["fake-conf"], title: "No commitment to block merkle tree depth", description: "Merkle tree depth manipulation allowing invalid block acceptance", date: "09/06/2018" },
+            { year: 2018, month: 7, cve: "CVE-2016-10724", types: ["dos"], title: "Alert memory exhaustion", description: "Alert system allowing unlimited memory consumption", date: "02/07/2018" },
+            { year: 2018, month: 7, cve: "CVE-2016-10725", types: ["dos"], title: "Final alert cancellation", description: "Alert system shutdown preventing future emergency communications", date: "02/07/2018" },
+            { year: 2018, month: 9, cve: "CVE-2018-17144", types: ["inflation", "dos"], title: "Missing check for duplicate inputs", description: "Duplicate input validation bypass allowing potential inflation and DoS", date: "17/09/2018" },
+            { year: 2019, month: 2, cve: "CVE-2018-20587", types: ["theft"], title: "No alert for RPC service binding failure", description: "Silent RPC binding failures exposing services to unintended networks", date: "08/02/2019" },
+            { year: 2019, month: 6, cve: "CVE-2018-20586", types: ["unknown"], title: "Allow injection of arbitrary data into the debug log via an RPC call", description: "RPC interface allowing arbitrary log injection for potential attacks", date: "22/06/2019" },
+            { year: 2019, month: 6, cve: "CVE-2017-18350", types: ["unknown"], title: "Buffer overflow vulnerability", description: "Memory buffer overflow with undefined security implications", date: "22/06/2019" }
         ];
 
         let currentFilter = 'all';
@@ -906,7 +906,7 @@
         function renderVulnerabilities() {
             const filtered = currentFilter === 'all' 
                 ? vulnerabilities 
-                : vulnerabilities.filter(v => v.type === currentFilter);
+                : vulnerabilities.filter(v => v.types.includes(currentFilter));
 
             const grouped = groupByYear(filtered);
             const years = Object.keys(grouped).sort((a, b) => parseInt(a) - parseInt(b));
@@ -927,7 +927,7 @@
                 grouped[year].forEach(vuln => {
                     const vulnItem = document.createElement('div');
                     vulnItem.className = 'vulnerability-item';
-                    vulnItem.dataset.type = vuln.type;
+                    vulnItem.dataset.type = vuln.types[0]; // Primary type for styling
 
                     const criticalCVEs = [
                         'CVE-2010-5141', 'CVE-2010-5139', 'CVE-2011-4447',
@@ -937,15 +937,20 @@
                     ];
                     const isCritical = criticalCVEs.includes(vuln.cve);
 
+                    const typesDisplay = vuln.types.map(type => 
+                        `<span class="vuln-type type-${type}">${type.toUpperCase()}</span>`
+                    ).join('');
+
                     vulnItem.innerHTML = `
                         <div class="vulnerability-card">
                             <div class="card-front">
                                 <div class="vuln-title">${vuln.title}</div>
                                 <div class="vuln-cve">${vuln.cve}</div>
-                                <div class="vuln-type type-${vuln.type}">${vuln.type.toUpperCase()}</div>
+                                <div class="vuln-types">${typesDisplay}</div>
                                 <div class="vuln-description">${vuln.description}</div>
                                 ${vuln.date ? `<div class="vuln-date" style="color: var(--text-accent); font-size: 0.75em; margin-top: 5px; text-align: center;">${vuln.date}</div>` : ''}
                                 ${isCritical ? '<div style="position: absolute; bottom: 8px; right: 8px; color: #ff3838; font-size: 0.6em; font-weight: bold;">CRITICAL</div>' : ''}
+                                ${vuln.types.length > 1 ? '<div style="position: absolute; bottom: 8px; left: 8px; color: #ffcc66; font-size: 0.6em; font-weight: bold;">MULTI</div>' : ''}
                                 <div class="flip-indicator">details ⟲</div>
                             </div>
                             <div class="card-back">
@@ -1268,13 +1273,36 @@
                 'CVE-2015-6031', 'CVE-2018-17144'
             ];
 
-            const filteredWithoutGenesis = filtered.filter(v => v.type !== 'genesis');
+            const filteredWithoutGenesis = filtered.filter(v => !v.types.includes('genesis'));
             const criticalCount = filteredWithoutGenesis.filter(v => 
                 criticalCVEs.includes(v.cve)
             ).length;
 
+            // Count multi-type crises
+            const multiTypeCount = filteredWithoutGenesis.filter(v => v.types.length > 1).length;
+            
+            // Count total crisis types (sum of all type instances)
+            const totalTypeInstances = filteredWithoutGenesis.reduce((sum, v) => sum + v.types.length, 0);
+
             document.getElementById('total-vulns').textContent = filteredWithoutGenesis.length;
             document.getElementById('critical-vulns').textContent = criticalCount;
+            
+            // Add new stats display
+            const statsSection = document.querySelector('.stats-section');
+            let multiStatsDiv = document.getElementById('multi-stats');
+            if (!multiStatsDiv) {
+                multiStatsDiv = document.createElement('div');
+                multiStatsDiv.id = 'multi-stats';
+                multiStatsDiv.style.cssText = 'margin-top: 10px; font-size: 0.85em; color: var(--text-secondary);';
+                statsSection.appendChild(multiStatsDiv);
+            }
+            multiStatsDiv.innerHTML = `
+                <div>Multi-type crises: <span style="color: var(--text-accent); font-weight: bold;">${multiTypeCount}</span></div>
+                <div>Total type instances: <span style="color: var(--text-accent); font-weight: bold;">${totalTypeInstances}</span></div>
+                <div style="font-size: 0.75em; opacity: 0.8; margin-top: 5px;">
+                    Difference (${totalTypeInstances - filteredWithoutGenesis.length}) represents additional type classifications for multi-type crises
+                </div>
+            `;
         }
 
         document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -1293,8 +1321,8 @@
 
         function generateChartsFiltered() {
             const filtered = currentFilter === 'all' 
-                ? vulnerabilities.filter(v => v.type !== 'genesis')
-                : vulnerabilities.filter(v => v.type === currentFilter && v.type !== 'genesis');
+                ? vulnerabilities.filter(v => !v.types.includes('genesis'))
+                : vulnerabilities.filter(v => v.types.includes(currentFilter) && !v.types.includes('genesis'));
 
             generatePieChartFiltered(filtered);
             generateBarChartFiltered(filtered);
@@ -1312,8 +1340,12 @@
                 'unknown': 'Unknown'
             };
 
-            data.filter(v => v.type !== 'genesis').forEach(vuln => {
-                typeCounts[vuln.type] = (typeCounts[vuln.type] || 0) + 1;
+            data.filter(v => !v.types.includes('genesis')).forEach(vuln => {
+                vuln.types.forEach(type => {
+                    if (type !== 'genesis') {
+                        typeCounts[type] = (typeCounts[type] || 0) + 1;
+                    }
+                });
             });
 
             const ctx = document.getElementById('pieChart').getContext('2d');
