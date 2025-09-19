@@ -743,7 +743,7 @@
                         <strong style="color: #74b9ff; font-size: 1em;">FAUSSE CONF :</strong> Exploits de fausse confirmation, un ou plusieurs acteurs peuvent effectuer des doubles dépenses en manipulant les confirmations.
                     </div>
                     <div style="background-color: rgba(0,0,0,0.3); padding: 10px; border-left: 3px solid #ff7675;">
-                        <strong style="color: #ff7675; font-size: 1em;">DIVISION RÉSEAU :</strong> Vulnérabilités de division de chaîne, l'unicité du réseau et le registre canonique sont compromis lorsque des réseaux alternatifs émergent avec des nœuds opérant sous différentes règles protocolaires, incapables de converger.
+                        <strong style="color: #ff7675; font-size: 1em;">SCISSION DE CHAÎNE :</strong> Vulnérabilités de division de chaîne, l'unicité du réseau et le registre canonique sont compromis lorsque des réseaux alternatifs émergent avec des nœuds opérant sous différentes règles protocolaires, incapables de converger.
                     </div>
                     <div style="background-color: rgba(0,0,0,0.3); padding: 10px; border-left: 3px solid #81ecec;">
                         <strong style="color: #81ecec; font-size: 1em;">EXPOSITION :</strong> Risques de divulgation d'informations, un ou plusieurs acteurs peuvent accéder aux données des utilisateurs au-delà de la portée prévue.
@@ -803,7 +803,7 @@
                 <button class="filter-btn" data-type="dos">DOS</button>
                 <button class="filter-btn" data-type="theft">Vol</button>
                 <button class="filter-btn" data-type="fake-conf">Fausse Conf</button>
-                <button class="filter-btn" data-type="network-split">Division Réseau</button>
+                <button class="filter-btn" data-type="network-split">Scission de Chaîne</button>
                 <button class="filter-btn" data-type="exposure">Exposition</button>
                 <button class="filter-btn" data-type="inflation">Inflation</button>
                 <button class="filter-btn" data-type="unknown">Inconnu</button>
@@ -1323,12 +1323,12 @@
             const typeCounts = {};
             const typeLabels = {
                 'dos': 'DOS',
-                'theft': 'Theft',
-                'fake-conf': 'Fake Conf',
-                'network-split': 'Network Split',
-                'exposure': 'Exposure',
+                'theft': 'Vol',
+                'fake-conf': 'Fausse Conf',
+                'network-split': 'Scission de Chaîne',
+                'exposure': 'Exposition',
                 'inflation': 'Inflation',
-                'unknown': 'Unknown'
+                'unknown': 'Inconnu'
             };
 
             data.filter(v => v.type !== 'genesis').forEach(vuln => {
@@ -1451,12 +1451,12 @@
             const typeCounts = {};
             const typeLabels = {
                 'dos': 'DOS',
-                'theft': 'Theft',
-                'fake-conf': 'Fake Conf',
-                'network-split': 'Network Split',
-                'exposure': 'Exposure',
+                'theft': 'Vol',
+                'fake-conf': 'Fausse Conf',
+                'network-split': 'Scission de Chaîne',
+                'exposure': 'Exposition',
                 'inflation': 'Inflation',
-                'unknown': 'Unknown'
+                'unknown': 'Inconnu'
             };
 
             data.filter(v => v.type !== 'genesis').forEach(vuln => {
