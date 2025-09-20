@@ -402,12 +402,75 @@
             border: 2px solid #000000;
             box-shadow: inset 0 0 0 2px var(--button-border),
                         inset 0 0 0 4px var(--button-bg);
-            padding: 8px 12px;
-            margin: 5px;
+            padding: 12px 16px;
+            margin: 8px;
             font-family: 'Press Start 2P', monospace;
-            font-size: 0.7em;
+            font-size: 0.65em;
             cursor: pointer;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            min-height: 80px;
+            justify-content: center;
+            text-align: center;
+            min-width: 140px;
+        }
+
+        .filter-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            line-height: 1.2;
+        }
+
+        .filter-subtitle {
+            font-size: 0.8em;
+            opacity: 0.8;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-top: 2px;
+            line-height: 1.1;
+        }
+
+        .filter-count {
+            font-size: 0.75em;
+            color: var(--text-accent);
+            margin-top: 4px;
+            font-weight: bold;
+        }
+
+        .filter-btn-critical {
+            border-color: #ff3838;
+            box-shadow: inset 0 0 0 2px #ff3838,
+                        inset 0 0 0 4px var(--button-bg);
+        }
+
+        .filter-btn-critical:hover {
+            background-color: rgba(255, 56, 56, 0.1);
+            box-shadow: inset 0 0 0 2px #ff3838,
+                        inset 0 0 0 4px rgba(255, 56, 56, 0.2);
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .filter-btn-critical.active {
+            background-color: rgba(255, 56, 56, 0.2);
+            box-shadow: inset 0 0 0 2px #ff3838,
+                        inset 0 0 0 4px rgba(255, 56, 56, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .critical-notice {
+            animation: pulse-critical 2s infinite;
+        }
+
+        @keyframes pulse-critical {
+            0%, 100% { 
+                box-shadow: 0 0 5px rgba(255, 56, 56, 0.3);
+            }
+            50% { 
+                box-shadow: 0 0 15px rgba(255, 56, 56, 0.6);
+            }
         }
 
         .filter-btn.active {
@@ -799,14 +862,54 @@
             </div>
 
             <div class="filters">
-                <button class="filter-btn active" data-type="all">Tout</button>
-                <button class="filter-btn" data-type="dos">DOS</button>
-                <button class="filter-btn" data-type="theft">Vol</button>
-                <button class="filter-btn" data-type="fake-conf">Fausse Conf</button>
-                <button class="filter-btn" data-type="network-split">Scission de Chaîne</button>
-                <button class="filter-btn" data-type="exposure">Exposition</button>
-                <button class="filter-btn" data-type="inflation">Inflation</button>
-                <button class="filter-btn" data-type="unknown">Inconnu</button>
+                <button class="filter-btn active" data-type="all">
+                    <span class="filter-title">Tout</span>
+                    <span class="filter-count" id="count-all">(44 crises)</span>
+                </button>
+                <button class="filter-btn" data-type="dos">
+                    <span class="filter-title">DOS</span>
+                    <span class="filter-subtitle">Déni de Service</span>
+                    <span class="filter-count" id="count-dos">(11 crises)</span>
+                </button>
+                <button class="filter-btn" data-type="theft">
+                    <span class="filter-title">Vol</span>
+                    <span class="filter-subtitle">Appropriation Illicite</span>
+                    <span class="filter-count" id="count-theft">(3 crises)</span>
+                </button>
+                <button class="filter-btn" data-type="fake-conf">
+                    <span class="filter-title">Fausse Conf</span>
+                    <span class="filter-subtitle">Confirmation Invalide</span>
+                    <span class="filter-count" id="count-fake-conf">(7 crises)</span>
+                </button>
+                <button class="filter-btn" data-type="network-split">
+                    <span class="filter-title">Scission</span>
+                    <span class="filter-subtitle">Division du Réseau</span>
+                    <span class="filter-count" id="count-network-split">(4 crises)</span>
+                </button>
+                <button class="filter-btn" data-type="exposure">
+                    <span class="filter-title">Exposition</span>
+                    <span class="filter-subtitle">Fuite d'Information</span>
+                    <span class="filter-count" id="count-exposure">(4 crises)</span>
+                </button>
+                <button class="filter-btn" data-type="inflation">
+                    <span class="filter-title">Inflation</span>
+                    <span class="filter-subtitle">Création Monétaire</span>
+                    <span class="filter-count" id="count-inflation">(2 crises)</span>
+                </button>
+                <div class="critical-notice" style="margin: 15px 0; padding: 10px; border: 2px solid #ff3838; background-color: rgba(255, 56, 56, 0.1); color: #ff3838; font-family: 'VT323', monospace; font-size: 0.9em; text-align: center; border-radius: 4px;">
+                    <p><strong>🔴 CRISES CRITIQUES 🔴</strong></p>
+                    <p style="font-size: 0.8em; margin-top: 5px;">Vulnérabilités majeures ayant menacé l'intégrité du protocole Bitcoin</p>
+                </div>
+                <button class="filter-btn filter-btn-critical" data-type="critical">
+                    <span class="filter-title">🔴 Critiques</span>
+                    <span class="filter-subtitle">Menaces Systémiques</span>
+                    <span class="filter-count" id="count-critical">(13 crises)</span>
+                </button>
+                <button class="filter-btn" data-type="unknown">
+                    <span class="filter-title">Inconnu</span>
+                    <span class="filter-subtitle">Impact Indéterminé</span>
+                    <span class="filter-count" id="count-unknown">(3 crises)</span>
+                </button>
             </div>
 
             <div class="data-notice" style="margin: 5px 0; padding: 12px; border: 2px dashed #f1c40f; background-color: rgba(241, 196, 15, 0.1); color: #f1c40f; font-family: 'VT323', monospace; font-size: 1em; text-align: center; border-radius: 4px;">
@@ -913,10 +1016,23 @@
         }
 
         function renderVulnerabilities() {
-            const filtered = currentFilter === 'all' 
-                ? vulnerabilities 
-                : vulnerabilities.filter(v => v.type === currentFilter || (v.additionalTypes && v.additionalTypes.includes(currentFilter)));
+            const criticalCVEs = [
+                'CVE-2010-5141', 'CVE-2010-5139', 'CVE-2011-4447',
+                'CVE-2012-1909', 'CVE-2012-1910', 'CVE-2012-2459', 'CVE-2013-3219',
+                'CVE-2013-3220', 'BIP-0050', 'CVE-2013-4165', 'CVE-2014-0160',
+                'CVE-2015-6031', 'CVE-2018-17144'
+            ];
 
+            let filtered;
+            if (currentFilter === 'all') {
+                filtered = vulnerabilities;
+            } else if (currentFilter === 'critical') {
+                filtered = vulnerabilities.filter(v => criticalCVEs.includes(v.cve));
+            } else {
+                filtered = vulnerabilities.filter(v => v.type === currentFilter || (v.additionalTypes && v.additionalTypes.includes(currentFilter)));
+            }
+
+            updateFilterCounts();
             const grouped = groupByYear(filtered);
             const years = Object.keys(grouped).sort((a, b) => parseInt(a) - parseInt(b));
 
@@ -1296,6 +1412,41 @@
             document.getElementById('critical-vulns').textContent = criticalCount;
         }
 
+        function updateFilterCounts() {
+            const criticalCVEs = [
+                'CVE-2010-5141', 'CVE-2010-5139', 'CVE-2011-4447',
+                'CVE-2012-1909', 'CVE-2012-1910', 'CVE-2012-2459', 'CVE-2013-3219',
+                'CVE-2013-3220', 'BIP-0050', 'CVE-2013-4165', 'CVE-2014-0160',
+                'CVE-2015-6031', 'CVE-2018-17144'
+            ];
+
+            // Count each type
+            const typeCounts = {};
+            vulnerabilities.forEach(vuln => {
+                if (vuln.type !== 'genesis') {
+                    typeCounts[vuln.type] = (typeCounts[vuln.type] || 0) + 1;
+                    if (vuln.additionalTypes) {
+                        vuln.additionalTypes.forEach(type => {
+                            typeCounts[type] = (typeCounts[type] || 0) + 1;
+                        });
+                    }
+                }
+            });
+
+            // Update count displays
+            document.getElementById('count-all').textContent = `(${vulnerabilities.length} crises)`;
+            document.getElementById('count-dos').textContent = `(${typeCounts['dos'] || 0} crises)`;
+            document.getElementById('count-theft').textContent = `(${typeCounts['theft'] || 0} crises)`;
+            document.getElementById('count-fake-conf').textContent = `(${typeCounts['fake-conf'] || 0} crises)`;
+            document.getElementById('count-network-split').textContent = `(${typeCounts['network-split'] || 0} crises)`;
+            document.getElementById('count-exposure').textContent = `(${typeCounts['exposure'] || 0} crises)`;
+            document.getElementById('count-inflation').textContent = `(${typeCounts['inflation'] || 0} crises)`;
+            document.getElementById('count-unknown').textContent = `(${typeCounts['unknown'] || 0} crises)`;
+            
+            const criticalCount = vulnerabilities.filter(v => criticalCVEs.includes(v.cve)).length;
+            document.getElementById('count-critical').textContent = `(${criticalCount} crises)`;
+        }
+
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -1311,9 +1462,21 @@
         });
 
         function generateChartsFiltered() {
-            const filtered = currentFilter === 'all' 
-                ? vulnerabilities.filter(v => v.type !== 'genesis')
-                : vulnerabilities.filter(v => (v.type === currentFilter || (v.additionalTypes && v.additionalTypes.includes(currentFilter))) && v.type !== 'genesis');
+            const criticalCVEs = [
+                'CVE-2010-5141', 'CVE-2010-5139', 'CVE-2011-4447',
+                'CVE-2012-1909', 'CVE-2012-1910', 'CVE-2012-2459', 'CVE-2013-3219',
+                'CVE-2013-3220', 'BIP-0050', 'CVE-2013-4165', 'CVE-2014-0160',
+                'CVE-2015-6031', 'CVE-2018-17144'
+            ];
+
+            let filtered;
+            if (currentFilter === 'all') {
+                filtered = vulnerabilities.filter(v => v.type !== 'genesis');
+            } else if (currentFilter === 'critical') {
+                filtered = vulnerabilities.filter(v => criticalCVEs.includes(v.cve) && v.type !== 'genesis');
+            } else {
+                filtered = vulnerabilities.filter(v => (v.type === currentFilter || (v.additionalTypes && v.additionalTypes.includes(currentFilter))) && v.type !== 'genesis');
+            }
 
             generatePieChartFiltered(filtered);
             generateBarChartFiltered(filtered);
@@ -1673,6 +1836,7 @@
             }
 
             // Initialize page with "all" filter active
+            updateFilterCounts();
             renderVulnerabilities();
             generateChartsFiltered();
         });
