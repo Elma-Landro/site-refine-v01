@@ -1,27 +1,20 @@
 #!/bin/bash
 
-# Script pour remplacer les placeholders avec l'URL Swarm finale
-# Usage: ./update-urls.sh "https://votre-hash.swarm-gateways.net"
+# ✅ URLs déjà configurées pour mael-rolland.eth.limo
+# Ce script n'est plus nécessaire - déploiement direct possible !
 
-if [ -z "$1" ]; then
-    echo "Usage: $0 <SWARM_URL>"
-    echo "Exemple: $0 https://abc123.swarm-gateways.net"
-    exit 1
-fi
-
-SWARM_URL="$1"
-
-echo "🔄 Remplacement des placeholders avec : $SWARM_URL"
-
-# Liste des fichiers à modifier
-FILES="public/*.html public/*.xml"
-
-for file in $FILES; do
-    if [ -f "$file" ]; then
-        echo "📝 Mise à jour : $file"
-        sed -i.bak "s|SWARM_DOMAIN_PLACEHOLDER|$SWARM_URL|g" "$file"
-    fi
-done
+echo "🎉 Votre site est déjà configuré pour : https://mael-rolland.eth.limo"
+echo "📝 Prêt pour déploiement Swarm unique !"
+echo ""
+echo "🔗 Après déploiement, configurez votre ENS :"
+echo "   1. Connectez-vous à app.ens.domains"
+echo "   2. Allez sur mael-rolland.eth"
+echo "   3. Ajoutez un record 'contenthash' avec votre hash Swarm"
+echo "   4. Format: /swarm-ns/VOTRE_HASH_SWARM"
+echo ""
+echo "🌐 Votre site sera accessible via :"
+echo "   - https://mael-rolland.eth.limo"
+echo "   - https://mael-rolland.eth.link"
 
 echo "✅ URLs mises à jour ! Vous pouvez maintenant redéployer."
 echo "💡 Les fichiers .bak contiennent les versions originales."
