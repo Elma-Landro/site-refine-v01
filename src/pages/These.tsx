@@ -1,11 +1,11 @@
 import Navigation from '../components/Navigation';
 
-const Index = () => {
+const These = () => {
   return (
     <>
       <Navigation />
       <iframe 
-        src="/index-fr.html"
+        src="/these-fr.html"
         style={{ 
           width: '100%', 
           height: '100vh', 
@@ -14,10 +14,10 @@ const Index = () => {
           padding: 0,
           overflow: 'hidden'
         }}
-        title="Maël Rolland - Chercheur Indépendant"
+        title="Thèse de Doctorat"
       />
     </>
   );
 };
 
-export default Index;
+export default These;

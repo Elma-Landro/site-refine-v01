@@ -1,11 +1,11 @@
 import Navigation from '../components/Navigation';
 
-const Index = () => {
+const Curriculum = () => {
   return (
     <>
       <Navigation />
       <iframe 
-        src="/index-fr.html"
+        src="/curriculum-fr.html"
         style={{ 
           width: '100%', 
           height: '100vh', 
@@ -14,10 +14,10 @@ const Index = () => {
           padding: 0,
           overflow: 'hidden'
         }}
-        title="Maël Rolland - Chercheur Indépendant"
+        title="Curriculum Vitae"
       />
     </>
   );
 };
 
-export default Index;
+export default Curriculum;

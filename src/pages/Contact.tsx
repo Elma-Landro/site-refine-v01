@@ -1,11 +1,11 @@
 import Navigation from '../components/Navigation';
 
-const Index = () => {
+const Contact = () => {
   return (
     <>
       <Navigation />
       <iframe 
-        src="/index-fr.html"
+        src="/contact-fr.html"
         style={{ 
           width: '100%', 
           height: '100vh', 
@@ -14,10 +14,10 @@ const Index = () => {
           padding: 0,
           overflow: 'hidden'
         }}
-        title="Maël Rolland - Chercheur Indépendant"
+        title="Contact"
       />
     </>
   );
 };
 
-export default Index;
+export default Contact;
