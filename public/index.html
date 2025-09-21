@@ -27,17 +27,60 @@
 
     <!-- Additional SEO -->
     <link rel="canonical" href="https://elma-landro.github.io/Mael-Rolland-Landing/">
+    <link rel="alternate" hreflang="en" href="https://elma-landro.github.io/Mael-Rolland-Landing/index.html">
+    <link rel="alternate" hreflang="fr" href="https://elma-landro.github.io/Mael-Rolland-Landing/index-fr.html">
+    <link rel="alternate" hreflang="x-default" href="https://elma-landro.github.io/Mael-Rolland-Landing/index.html">
     <meta name="language" content="en">
     <meta name="revisit-after" content="7 days"></meta>
     <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_16x16.png">
     <link rel="shortcut icon" href="favicon.ico">
+    <link rel="manifest" href="manifest.json">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="assets/img/avatar-closky-mael-rolland.eth.jpg" as="image">
+    
+    <!-- DNS prefetch for external links -->
+    <link rel="dns-prefetch" href="//linkedin.com">
+    <link rel="dns-prefetch" href="//github.com">
+    <link rel="dns-prefetch" href="//ipfs.tech">
     <link rel="stylesheet" href="style.css">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Maël Rolland",
+        "alternateName": "mael-rolland.eth",
+        "jobTitle": "Independent Researcher in Cryptocurrency Political Economy",
+        "description": "PhD researcher exploring polycentric governance, institutional plasticity, and monetary experimentation in cryptocurrencies and Web3",
+        "url": "https://elma-landro.github.io/Mael-Rolland-Landing/",
+        "image": "https://elma-landro.github.io/Mael-Rolland-Landing/assets/img/avatar-closky-mael-rolland.eth.jpg",
+        "sameAs": [
+            "https://www.linkedin.com/in/ma%C3%ABl-rolland-phd-60a638b3/",
+            "https://x.com/elmalandr0",
+            "https://github.com/Elma-Landro",
+            "https://warpcast.com/maelrolland",
+            "https://hey.xyz/u/mael-rolland"
+        ],
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "PhD in Political Economy of Cryptocurrencies"
+        },
+        "knowsAbout": ["Cryptocurrency", "Political Economy", "Web3", "Decentralized Governance", "Blockchain Economics", "Bitcoin"],
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "FR"
+        }
+    }
+    </script>
     <style>
         .description, .research-focus {
             font-family: 'VT323', monospace;
@@ -105,12 +148,12 @@
   <div class="ens-identities">
     <div class="ens-block">
       <span>mael-rolland.eth</span>
-      <img src="assets/img/avatar-closky-mael-rolland.eth.jpg" alt="Maël Avatar">
+      <img src="assets/img/avatar-closky-mael-rolland.eth.jpg" alt="Maël Rolland - Independent Researcher" loading="lazy">
       <span class="asterisk-badge">*</span>
     </div>
     <div class="ens-block">
       <span>TheDyorLab.eth</span>
-      <img src="assets/img/avatar-raredesigner-thedyorlab.eth.jpg" alt="TheDyorLab Avatar">
+      <img src="assets/img/avatar-raredesigner-thedyorlab.eth.jpg" alt="TheDyorLab - Applied Crypto Research" loading="lazy">
       <span class="asterisk-badge">**</span>
     </div>
   </div>
@@ -193,6 +236,16 @@
 
 
     </div>
+
+    <!-- Simple analytics for Swarm deployment -->
+    <script>
+        // Track basic page views for Swarm deployment
+        if (typeof Storage !== "undefined") {
+            const visits = parseInt(localStorage.getItem('pageViews') || '0') + 1;
+            localStorage.setItem('pageViews', visits);
+            localStorage.setItem('lastVisit', new Date().toISOString());
+        }
+    </script>
 
 <script>
         // Theme toggle functionality
