@@ -322,6 +322,14 @@
             color: #ff7675; 
         }
 
+        .vuln-types-container {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 5px;
+        }
+
         .vuln-description {
             color: var(--text-primary);
             font-size: 0.8em;
@@ -952,7 +960,10 @@
                             <div class="card-front">
                                 <div class="vuln-title">${vuln.title}</div>
                                 <div class="vuln-cve">${vuln.cve}</div>
-                                <div class="vuln-type type-${vuln.type}">${vuln.type.toUpperCase()}${vuln.additionalTypes ? vuln.additionalTypes.map(t => ` + ${t.toUpperCase()}`).join('') : ''}</div>
+                                <div class="vuln-types-container">
+                                    <div class="vuln-type type-${vuln.type}">${vuln.type.toUpperCase()}</div>
+                                    ${vuln.additionalTypes ? vuln.additionalTypes.map(t => `<div class="vuln-type type-${t}">${t.toUpperCase()}</div>`).join('') : ''}
+                                </div>
                                 <div class="vuln-description">${vuln.description}</div>
                                 ${vuln.date ? `<div class="vuln-date" style="color: var(--text-accent); font-size: 0.75em; margin-top: 5px; text-align: center;">${vuln.date}</div>` : ''}
                                 ${isCritical ? '<div style="position: absolute; bottom: 8px; right: 8px; color: #ff3838; font-size: 0.6em; font-weight: bold;">CRITICAL</div>' : ''}
