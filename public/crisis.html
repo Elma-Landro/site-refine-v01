@@ -1007,12 +1007,15 @@
 
                     // Add click handler for card flipping
                     vulnItem.addEventListener('click', function(e) {
-                        if (!e.target.closest('.badge')) {
-                            if (!this.classList.contains('flipped')) {
-                                // Open modal
-                                this.classList.add('flipped');
-                                showModal();
-                            }
+                        // Don't interfere with links and badges
+                        if (e.target.tagName === 'A' || e.target.closest('a') || e.target.closest('.badge')) {
+                            return; // Let the link work normally
+                        }
+                        
+                        if (!this.classList.contains('flipped')) {
+                            // Open modal
+                            this.classList.add('flipped');
+                            showModal();
                         }
                     });
 
