@@ -1007,9 +1007,10 @@
 
                     // Add click handler for card flipping
                     vulnItem.addEventListener('click', function(e) {
-                        // Don't interfere with links and badges
+                        // Don't interfere with links and badges in both front and back of cards
                         if (e.target.tagName === 'A' || e.target.closest('a') || e.target.closest('.badge')) {
-                            return; // Let the link work normally
+                            e.stopPropagation(); // Prevent card flip but allow link to work
+                            return;
                         }
                         
                         if (!this.classList.contains('flipped')) {
