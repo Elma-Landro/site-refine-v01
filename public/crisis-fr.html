@@ -186,6 +186,7 @@
             background-color: rgba(0,0,0,0.2);
             z-index: 999;
             display: none;
+            overflow-y: auto;
         }
 
         /* Close button */
@@ -1792,7 +1793,7 @@
 
             overlay.style.display = 'block';
             closeButton.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
+            // Allow scrolling in modal
         }
 
         function hideModal() {
@@ -1803,7 +1804,7 @@
             if (flippedCard) flippedCard.classList.remove('flipped');
             if (overlay) overlay.style.display = 'none';
             if (closeButton) closeButton.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            // Restore normal scrolling
         }
 
         function createOverlay() {
