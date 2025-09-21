@@ -267,6 +267,8 @@
             font-weight: bold;
             margin-bottom: 5px;
             text-align: center;
+            word-wrap: break-word;
+            hyphens: auto;
         }
 
         .vuln-cve {
@@ -547,6 +549,13 @@
                 margin: 0 auto 12px auto;
                 padding: 30px 10px 10px 10px; /* Plus de padding en haut pour les badges */
                 font-size: 0.9em;
+            }
+            
+            .vuln-title {
+                font-size: 0.85em;
+                line-height: 1.2;
+                max-width: calc(100% - 80px); /* Espace pour les badges */
+                margin: 0 auto 5px auto;
             }
 
             .vulnerability-item.flipped {
