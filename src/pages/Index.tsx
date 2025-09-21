@@ -1,9 +1,7 @@
-// Update this page (the content is just a fallback if you fail to update the page)
-
 const Index = () => {
   return (
     <iframe 
-      src="/index.html?v=1"
+      src="/index.html"
       style={{ 
         width: '100%', 
         height: '100vh', 
@@ -12,7 +10,7 @@ const Index = () => {
         padding: 0,
         overflow: 'hidden'
       }}
-      title="Votre site HTML"
+      title="Maël Rolland - Independent Researcher"
     />
   );
 };
