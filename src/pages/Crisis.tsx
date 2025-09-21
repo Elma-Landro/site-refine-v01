@@ -11,6 +11,11 @@ const Crisis = () => {
         overflow: 'hidden'
       }}
       title="Crisis Timeline"
+      onError={(e) => {
+        console.error('Failed to load crisis.html:', e);
+        console.log('Attempting to access:', window.location.origin + '/crisis.html');
+      }}
+      onLoad={() => console.log('crisis.html loaded successfully')}
     />
   );
 };
