@@ -112,19 +112,6 @@
     <priority>0.8</priority>
   </url>
 
-  <url>
-    <loc>https://elma-landro.github.io/Mael-Rolland-Landing/rare-pepe.html</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://elma-landro.github.io/Mael-Rolland-Landing/rare-pepe-fr.html" />
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://elma-landro.github.io/Mael-Rolland-Landing/rare-pepe-fr.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://elma-landro.github.io/Mael-Rolland-Landing/rare-pepe.html" />
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
 
   <!-- Technical -->
   <url>
