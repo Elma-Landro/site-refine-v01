@@ -11,6 +11,8 @@ const Index = () => {
         overflow: 'hidden'
       }}
       title="Maël Rolland - Independent Researcher"
+      onError={() => console.error('Failed to load index.html')}
+      onLoad={() => console.log('index.html loaded successfully')}
     />
   );
 };
