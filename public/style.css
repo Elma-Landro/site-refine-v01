@@ -1521,11 +1521,12 @@ footer {
     text-align: left;
     font-family: 'VT323', monospace;
     line-height: 1.8;
+    color: #ffffff;
 }
 
 .section-title {
     font-family: 'Press Start 2P', monospace;
-    color: var(--text-primary);
+    color: #ffffff;
     font-size: 1.5em;
     margin-bottom: 20px;
     text-align: center;
@@ -1533,16 +1534,17 @@ footer {
 
 .talk-entry {
     margin-bottom: 15px;
-    border-bottom: 1px dashed var(--text-secondary);
+    border-bottom: 1px dashed #cccccc;
     padding-bottom: 10px;
-    color: var(--text-primary);
+    color: #ffffff;
 }
 
 .talk-entry a {
-    color: var(--text-accent);
+    color: #33ff33;
     text-decoration: none;
 }
 
 .talk-entry a:hover {
     text-decoration: underline;
+    color: #ffcc66;
 }
